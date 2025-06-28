@@ -1,3 +1,4 @@
+const Sequelize = require('sequelize');
 const MSSQL_HOST = 'localhost'; // Servidor local. 
 const MSSQL_USER = 'sa'; // Usuário do servidor de banco de dados. 
 const MSSQL_PASSWORD = '123456789'; // Senha de acesso ao servidor do banco de dados.

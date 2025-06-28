@@ -42,11 +42,11 @@ module.exports = {movimentacaoModel};
 // Associação: Um produto pode ter várias movimentações
 produtoModel.hasMany(movimentacaoModel, {
     foreignKey: 'idProdutoMovimentacao',
-    as: 'Produto' // Alias para acessar as movimentações de um produto
+    as: 'produtoMovimentacao' // Alias para acessar as movimentações de um produto
 });
 
 // Associação: Uma movimentação pertence a um produto
 movimentacaoModel.belongsTo(produtoModel, {
     foreignKey: 'idProdutoMovimentacao',
-    as: 'Produto' // Alias para acessar o produto de uma movimentação
+    as: 'movimentacaoProduto' // Alias para acessar o produto de uma movimentação
 });

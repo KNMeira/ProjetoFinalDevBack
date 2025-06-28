@@ -10,7 +10,7 @@ const vendasProdutosModel = sequelize.define('VendasProdutos', {
         primaryKey: true,
         references: {
             model: produtosModel,
-            key: 'ID_Produto',
+            key: 'ID_ProdutoVP',
         },
         allowNull: false
     },
@@ -19,7 +19,7 @@ const vendasProdutosModel = sequelize.define('VendasProdutos', {
         primaryKey: true,
         references: {
             model: vendasModel,
-            key: 'ID_Venda',
+            key: 'ID_VendaVP',
         },
         allowNull: false
     }
@@ -32,15 +32,13 @@ const vendasProdutosModel = sequelize.define('VendasProdutos', {
 produtosModel.belongsToMany(vendasModel, {
     through: vendasProdutosModel,
     foreignKey: 'ID_ProdutoVP',
-    otherKey: 'ID_VendaVP',
-    as: 'Vendas'
+    as: 'produtosVendas'
 });
 
 vendasModel.belongsToMany(produtosModel, {
     through: vendasProdutosModel,
     foreignKey: 'ID_VendaVP',
-    otherKey: 'ID_ProdutoVP',
-    as: 'Produtos'
+    as: 'vendasProdutos'
 });
 
 module.exports = { vendasProdutosModel };

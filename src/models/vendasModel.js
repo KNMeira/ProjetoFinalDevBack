@@ -56,23 +56,23 @@ const vendaModel = sequelize.define('Vendas', {
 
 funcionarioModel.hasMany(vendaModel, {
     foreignKey: 'idFuncionarioVenda',
-    as: 'Funcionario'});
+    as: 'funcionarioVenda'});
 
 // Associação: Um cliente pode ter várias vendas
 clienteModel.hasMany(vendaModel, {
     foreignKey: 'idClienteVenda',
-    as: 'Clientes' // Alias para acessar as vendas de um cliente
+    as: 'clienteVenda' // Alias para acessar as vendas de um cliente
 });
 
 vendaModel.belongsTo(funcionarioModel, {
     foreignKey: 'idFuncionarioVenda',
-    as: 'Funcionario' // Alias para acessar o produto de uma venda
+    as: 'vendaFuncionario' // Alias para acessar o produto de uma venda
 });
 
 // Associação: Uma venda pertence a um produto
 vendaModel.belongsTo(clienteModel, {
     foreignKey: 'idClienteVenda',
-    as: 'Cliente' // Alias para acessar o produto de uma venda
+    as: 'vendaCliente' // Alias para acessar o produto de uma venda
 });
 
 

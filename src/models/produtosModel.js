@@ -63,21 +63,21 @@ const produtoModel = sequelize.define('Produto', {
 
 // Associações entre Produto e Funcionário
 funcionarioModel.hasMany(produtoModel, {foreignKey: 'idFuncionarioProduto',
-    as: 'Funcionario' // Um funcionário pode ter muitos produtos
+    as: 'funcionarioProduto' // Um funcionário pode ter muitos produtos
 });
 produtoModel.belongsTo(funcionarioModel, {
     foreignKey: 'idFuncionarioProduto',
-    as: 'Funcionario' // Um produto pertence a um funcionário
+    as: 'produtoFuncionario' // Um produto pertence a um funcionário
 });
 
 // Associações entre Produto e Fornecedor
 fornecedorModel.hasMany(produtoModel, {
     foreignKey: 'idFornecedorProduto',
-    as: 'Fornecedor' // Um fornecedor pode ter muitos produtos
+    as: 'fornecedorProduto' // Um fornecedor pode ter muitos produtos
 });
 produtoModel.belongsTo(fornecedorModel, {
     foreignKey: 'idFornecedorProduto',
-    as: 'Fornecedor' // Um produto pertence a um fornecedor
+    as: 'produtoFornecedor' // Um produto pertence a um fornecedor
 });
 
 module.exports = {produtoModel};
